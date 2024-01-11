@@ -1,6 +1,8 @@
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import messagebox
+from datetime import datetime
+
 
 task_counter = 1  # Initialize task counter
 
@@ -8,11 +10,12 @@ def add_task(event=None):  # Accept an event argument for key binding
     global task_counter  # Use the global task counter variable
     task = task_entry.get()
     if task:
-        task_text = f"{task_counter}. {task}"  # Include the task number
+        now = datetime.now()
+        current_time = now.strftime("%Y-%m-%d %H:%M")  # Use the format without seconds
+        task_text = f"{task_counter}. {task} | Created on: {current_time}"  # Include date and time
         task_list.insert(tk.END, task_text)
         task_entry.delete(0, tk.END)
         task_counter += 1  # Increment the task counter
-# Bind the Enter key to the add_task function
 
 
 def remove_task():
