@@ -47,19 +47,23 @@ class ContactBookApp:
         self.search_entry.grid(row=0, column=0, padx=5, pady=5, columnspan=2, sticky="ew")
 
         self.search_button = ctk.CTkButton(self.right_frame, text="Search Contact", command=self.search_contact)
-        self.search_button.grid(row=0, column=1, padx=5, pady=5)
+        self.search_button.grid(row=0, column=2, padx=5, pady=5)
 
         self.contact_listbox = tk.Listbox(self.right_frame, height=30, width=60, font=("Arial black", 11, "bold"))
         self.contact_listbox.grid(row=1, column=0, pady=10, columnspan=2)
 
-        self.view_button = ctk.CTkButton(self.right_frame, text="View Contacts", command=self.view_contacts)
-        self.view_button.grid(row=2, column=0, columnspan=2, pady=5)
+        self.view_button = ctk.CTkButton(self.right_frame, text="View Contacts", command=self.view_contacts, width=5)
+        self.view_button.grid(row=3, column=0, padx=(0, 5), pady=(5, 0), sticky="ew")  # Adjusted padx and sticky
 
         self.update_button = ctk.CTkButton(self.right_frame, text="Update Contact", command=self.update_contact)
-        self.update_button.grid(row=3, column=0, columnspan=2, pady=5)
+        self.update_button.grid(row=3, column=1, padx=(0, 5), pady=(5, 0), sticky="ew")  # Adjusted padx and sticky
 
         self.delete_button = ctk.CTkButton(self.right_frame, text="Delete Contact", command=self.delete_contact)
-        self.delete_button.grid(row=4, column=0, columnspan=2, pady=5)
+        self.delete_button.grid(row=3, column=2, pady=(5, 0), sticky="ew")  # Adjusted sticky
+
+
+
+
 
     def add_contact(self):
         name = self.name_entry.get()
